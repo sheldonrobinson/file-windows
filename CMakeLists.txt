@@ -143,9 +143,6 @@ if( NOT EXISTS ${file_magic_SOURCE_DIR}/src/regex.h )
 file(DOWNLOAD https://raw.githubusercontent.com/PCRE2Project/pcre2/3f05f72081b24ee2830250e669d0113725437a70/src/pcre2posix.h ${file_magic_SOURCE_DIR}/src/regex.h)
 endif()
 
-message("file_magic_SOURCE_DIR=${file_magic_SOURCE_DIR}/src")
-message("win-headers=${CMAKE_CURRENT_SOURCE_DIR}/win-headers")
-message("getopt=${CMAKE_CURRENT_SOURCE_DIR}/getopt")
 
 add_definitions(-DHAVE_CONFIG_H -DVERSION="${FILE_VERSION}" -DWIN32_LEAN_AND_MEAN -DWIN32 -DPCRE2_STATIC )
 add_library(libmagic ${LIBMAGIC_SOURCE_FILES})
