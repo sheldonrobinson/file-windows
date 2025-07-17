@@ -9,6 +9,8 @@ endfunction()
 
 include(FetchContent)
 
+option(BUILD_TESTS "Build tests" OFF)
+
 #################### dirent
 FetchContent_Declare(
   dirent
