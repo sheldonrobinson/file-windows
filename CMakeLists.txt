@@ -148,8 +148,8 @@ endif()
 
 add_definitions(-DHAVE_CONFIG_H -DVERSION="${FILE_VERSION}" -DWIN32_LEAN_AND_MEAN -DWIN32 -DPCRE2_STATIC )
 add_library(libmagic ${LIBMAGIC_SOURCE_FILES})
-target_include_directories(libmagic PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/win-headers ${file_magic_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/getopt)
-target_link_libraries(libmagic PRIVATE dirent pcre2-posix shlwapi)
+target_include_directories(libmagic PUBLIC ${file_magic_SOURCE_DIR}/src PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/win-headers  ${CMAKE_CURRENT_SOURCE_DIR}/getopt)
+target_link_libraries(libmagic PUBLIC dirent pcre2-posix shlwapi)
 
 
 add_executable(file ${file_magic_SOURCE_DIR}/src/file.c)
