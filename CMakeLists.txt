@@ -11,6 +11,7 @@ include(FetchContent)
 
 option(BUILD_TESTS "Build tests" OFF)
 
+
 #################### dirent
 FetchContent_Declare(
   dirent
@@ -150,6 +151,9 @@ add_definitions(-DHAVE_CONFIG_H -DVERSION="${FILE_VERSION}" -DWIN32_LEAN_AND_MEA
 add_library(libmagic ${LIBMAGIC_SOURCE_FILES})
 target_include_directories(libmagic PUBLIC ${libmagic_SOURCE_DIR}/src PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/win-headers  ${CMAKE_CURRENT_SOURCE_DIR}/getopt)
 target_link_libraries(libmagic PUBLIC dirent pcre2-posix shlwapi)
+if(MSVC)
+	target_compile_definitions(libmagic BUILD_AS_WINDOWS_STATIC_LIBARAY=1)
+endif()
 
 
 add_executable(file ${libmagic_SOURCE_DIR}/src/file.c)
