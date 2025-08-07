@@ -60,8 +60,8 @@ set(FILE_VERSION 5.46)
 FetchContent_Populate(
   libmagic
   QUIET
-  GIT_REPOSITORY https://github.com/file/file.git
-  GIT_TAG        7b4417cc8bae378c33f5e72148bc706571032580
+  GIT_REPOSITORY https://github.com/sheldonrobinson/file.git
+  GIT_TAG        74e451be9d9e86af5e06e9795403017f8c6833ba
   GIT_SHALLOW    TRUE
   
   CMAKE_ARGS -DCMAKE_POSITION_INDEPENDENT_CODE=ON
